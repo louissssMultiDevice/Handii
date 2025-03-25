@@ -25,3 +25,9 @@ document.querySelectorAll("button").forEach(button => {
 document.getElementById("view-more").addEventListener("click", function() {
     document.getElementById("more-info").classList.toggle("hidden");
 });
+
+const clickSound = new Audio("click.mp3");
+
+document.getElementById("button").addEventListener("click", () => {
+    clickSound.play();
+});
