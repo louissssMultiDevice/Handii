@@ -275,7 +275,14 @@ button {
              function BotFika() {
                 if (preview) {
                     let url = `httpe://wa.me/${nomorWA}?text=.menu`;window.open(url, "_blank");
-                
+
+            function showNotif() {
+                document.getElementById("notif").style.display = "block";
+                }
+
+            function hideNotif() {
+                document.getElementById("notif").style.display = "none";
+                }
             function orderWhatsApp() {
                 let layanan = document.getElementById("layanan").value;
                 let jumlah = document.getElementById("jumlah").value;
