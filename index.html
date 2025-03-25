@@ -486,6 +486,40 @@ footer {
             <button onclick="Testimoni()">Testimoni</button>
 
         <script>
+            function showMenu(menu) {
+    let overlay = document.getElementById("overlay");
+
+    overlay.classList.add("show");
+
+    setTimeout(() => {
+        
+        document.getElementById('menu1').style.display = "none";
+        document.getElementById('menu2').style.display = "none";
+        document.getElementById('menu3').style.display = "none";
+
+        document.getElementById(menu).style.display = "block";
+
+        let title = document.getElementById("title");
+        let description = document.getElementById("description");
+
+        if (menu === "menu1") {
+            title.innerText = "Fika Store - Minecraft & Hosting";
+            description.innerText = "Layanan hosting Minecraft Bedrock & Java murah!";
+        } else if (menu === "menu2") {
+            title.innerText = "Fika Store - Script & Bot WhatsApp";
+            description.innerText = "Layanan pembuatan bot & script WhatsApp";
+        } else if (menu === "menu3") {
+            title.innerText = "Fika Store - VPS & Panel";
+            description.innerText = "Layanan VPS, Panel, dan domain dengan harga terbaik!";
+        }
+
+        setTimeout(() => {
+            overlay.classList.remove("show");
+        }, 500);
+    }, 500);
+}
+
+showMenu('menu1');
             function Testimoni() {
                 let url = `https://whatsapp.com/channel/0029VazclOxBVJl7jkbqnW1e`;window.open(url, "_blank");
 
@@ -515,11 +549,13 @@ footer {
         </script>
             
        <footer>
+    <div class="box">
     <div class="copyright">
         <p>© 2025 Fika Store | All Rights Reserved</p>
         <p>Fika Store - Layanan Digital Terpercaya</p>
         <p>© Website By Handi</p>
         <p>© FikaAi - Handi - 2022-2025</p>
+    </div>
     </div>
        </footer>
 
