@@ -13,6 +13,8 @@
         <p>Hosting & Jasa Digital Murah dan Terpercaya</p>
     </header>
 
+    <div class="overlay" id="overlay"></div>
+
     <section class="intro">
         <img src="logo.png" alt="Fika AI Logo">
         <p><strong><i class="fas fa-robot"></i> Hai, aku adalah Fika AI.</strong> Aku adalah AI/bot buatan Handi yang siap membantu Anda kapan saja! Saat ini Developer Handi sedang membangun website ini untuk <bold>Fika Store</bold>, dan aku juga berkontribusi dalam prosesnya. Semoga website ini dapat membantu Anda mendapatkan layanan terbaik!</p>
@@ -108,6 +110,24 @@
     text-align: center;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .menu-selector {
     display: flex;
     justify-content: center;
@@ -132,7 +152,6 @@
     background: #25D366;
 }
 
-/* Styling List Produk */
 .service-list {
     display: none;
     max-width: 600px;
@@ -166,9 +185,9 @@
     background: #128C7E;
 }
 
-#menu1:checked ~ .menu1,
-#menu2:checked ~ .menu2,
-#menu3:checked ~ .menu3 {
+#menu1:checked ~ #list1,
+#menu2:checked ~ #list2,
+#menu3:checked ~ #list3 {
     display: block;
 }
 header {
@@ -327,7 +346,7 @@ footer {
         .hero {
              text-align: center;
              padding: 40px 20px;
-             background: #111; /* Warna gelap untuk modern look */
+             background: #111;
              color: white;
              font-family: 'Poppins', sans-serif;
         }
