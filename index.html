@@ -20,6 +20,44 @@
             background-color: #121212; 
             color: white;
         }
+        .fixed-name {
+    position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+            z-index: 1000;
+       }
+
+        .logo {
+           position: fixed;
+           bottom: 10px;
+           right: 10px;
+           font-size: 40px;
+           display: none;
+        }
+
+        .hidden-logo {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+       }
+
+        .show-logo {
+             opacity: 1;
+       }
+
+       .typing-container {
+            margin-top: 100px;
+            font-size: 24px;
+            font-weight: bold;
+       }
        .typing-text {
             font-size: 24px;
             font-weight: bold;
@@ -144,6 +182,7 @@
     </div>
 </body>
 
+    <div class="fixed-name">Handii | Fika Store</div>
     
     <div class="card">
         <img src="logo.png" alt="Fika Store Logo" class="logo">
@@ -208,6 +247,15 @@
         <p><small> © Website By Handi</p></small>
         <p><small> © FikaAi - Handi - 2022-2025</p></small>
     </div>
+
+        <div id="extra-content" style="display: none;">
+    <p>Ini adalah info tambahan.</p>
+</div>
+<button id="view-more">View More</button>
+            <div id="logo">🔥</div>
+<div id="logo" class="hidden-logo">
+    <img src="cusror.png" alt="Logo" width="50">
+</div>
 
 </body>
 </html>
