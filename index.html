@@ -8,11 +8,13 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
     <header>
+    <header class="hero">
     <h1>Hi, I'm Handi</h1>
-    <h2><b>Developer Website Fika~</b></h2>
-    <p>Pembuat website <b>fika.privhandi.my.id</b></p>
-    <p>Saya membuat website ini karena saya ingin membuat store yang bernama <b>Fika Store</b></p>
-    <p class="highlight">SILAHKAN SCROLL KE BAWAH UNTUK MELIHAT DAFTAR LAYANAN KAMI YAAAA... 🤗</p>
+    <h2>Developer Website Fika~</h2>
+    <p>Pembuat website <span class="highlight">fika.privhandi.my.id</span></p>
+    <p>Saya membuat website ini karena saya ingin membuat store yang bernama <span class="bold">Fika Store</span></p>
+    <p class="cta">SILAHKAN SCROLL KE BAWAH UNTUK MELIHAT DAFTAR LAYANAN KAMI YAAAA... 🤗</p>
+    </header>
     </header>
     <style>
         body { 
@@ -35,6 +37,19 @@
             border-radius: 50%;
             margin-bottom: 20px;
         }
+
+        .hero {
+             text-align: center;
+             padding: 40px 20px;
+             background: #111; /* Warna gelap untuk modern look */
+             color: white;
+             font-family: 'Poppins', sans-serif;
+        }
+
+        .bold {
+             font-weight: bold;
+            color: #fff;
+       }
         
         h1 {
              font-size: 36px;
