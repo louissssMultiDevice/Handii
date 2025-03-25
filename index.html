@@ -222,6 +222,7 @@
         
         <div class="bold">
         <p>Jangan Ragu! Testimoni Tersedia</p>
+            <input type="text" id=Testimoni" placeholder="Ketik .menu untuk preview FikaAi" required>
             <button onclick="Testimoni()">Testimoni</button>
 
         <script>
@@ -232,9 +233,6 @@
                 let layanan = document.getElementById("layanan").value;
                 let jumlah = document.getElementById("jumlah").value;
                 let nomorWA = "6287717274346";
-
-            function BotFika() {
-                let url = `httpe://wa.me/${nomorWA}?text=.menu`;window.open(url, "_blank");
 
                 if (layanan) {
                     let url = `https://wa.me/${nomorWA}?text=Halo%20Admin%20Handi,%20saya%20mau%20order%20${layanan}%20%0A%0AJumlah:%20${jumlah}`;
@@ -253,7 +251,13 @@
 
 <div class="order">
      <p><strong>Priview Bot FikaAi</strong></p>
-        <button onclick=BotFika()">FikaAi Bot</button></div>
+        <button onclick=BotFika()">FikaAi Bot</button></di
+
+    <scirpt>
+         function BotFika() {
+                if (preview)
+                let url = `httpe://wa.me/${nomorWA}?text=.menu`;window.open(url, "_blank");
+    </scirpt>
             
             <div class="logo">🔥</div>
 <div class="logo" class="hidden-logo">
