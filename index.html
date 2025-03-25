@@ -572,33 +572,6 @@ footer {
 
         let title = document.getElementById("title");
         let description = document.getElementById("description");
-
-        if (menu === "menu1") {
-            title.innerText = "Fika Store - Minecraft & Hosting";
-            description.innerText = "Layanan hosting Minecraft Bedrock & Java murah!";
-        } else if (menu === "menu2") {
-            title.innerText = "Fika Store - Script & Bot WhatsApp";
-            description.innerText = "Layanan pembuatan bot & script WhatsApp";
-        } else if (menu === "menu3") {
-            title.innerText = "Fika Store - VPS & Panel";
-            description.innerText = "Layanan VPS, Panel, dan domain dengan harga terbaik!";
-        }
-
-        setTimeout(() => {
-            overlay.classList.remove("show");
-        }, 500);
-    }, 500);
-}
-
-showMenu('menu1');
-            function showContent(id) {
-    // Sembunyikan semua konten
-    document.querySelectorAll('.content').forEach(content => {
-        content.classList.remove('active');
-    });
-
-    // Tampilkan menu yang diklik
-    document.getElementById(id).classList.add('active');
                    }
             function Testimoni() {
                 let url = `https://whatsapp.com/channel/0029VazclOxBVJl7jkbqnW1e`;window.open(url, "_blank");
