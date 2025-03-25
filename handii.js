@@ -1,6 +1,9 @@
 const text = "Hai, selamat datang di Fika Store✨";
 let index = 0;
 
+module.exports = Ndi = async (Handi, m, chatUpdate, store, document, text, window, button, hoversound, clickSound) => {
+	try {
+
 function typeText() {
     if (index < text.length) {
         document.getElementById("typing-text").innerHTML += text.charAt(index);
