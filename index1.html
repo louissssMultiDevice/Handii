@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fika Ai Music</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1db954;
+      --background: #121212;
+      --card: #181818;
+      --text: #fff;
+      --muted: #b3b3b3;
+      --radius: 16px;
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  padding: 20px;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.search {
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #222;
+}
+
+.card img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+
+.card h4 {
+  margin: 0;
+}
+
+.footer {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin-bottom: 4px;
+}
+
+/* Login Modal */
+.login-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: none;
+}
+
+.login-box {
+  background-color: var(--card);
+  padding: 30px;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.login-box h3 {
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+.login-box button {
+  background-color: var(--primary);
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  opacity: 0.9;
+}
+
+.login-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--primary);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+  </style>
+</head>
+<body>
+  <div class="login-btn" onclick="openLogin()">Login</div>  <div class="header">Fika-Ai | Digital Music</div>
+  <input type="text" class="search" placeholder="Cari lagu favoritmu..." onkeyup="filterMusic(this.value)" />
+  <div class="grid" id="musicGrid">
+    <div class="card">
+      <img src="https://i.imgur.com/yYphmWr.jpeg" alt="Album Cover" />
+      <h4>Lagu Favorit</h4>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/V8X5iO3.jpeg" alt="Album Cover" />
+      <h4>Lagu Menawan</h4>
+    </div>
+  </div>  <div class="footer">
+    <p><strong>Support by:</strong> Fika-Ai, Fika-Store, Handi, Kyra SMP, MythicVerse, Coreegaming Network, YanMC, VPSKITA, KitaCloud, Phoenix store, FikaCloud</p>
+    <p><strong>Thanks to:</strong> Handi (Developer), Handi (Programmer), Fika-Ai (Support), phx store (Support)</p>
+  </div>  <div class="login-modal" id="loginModal">
+    <div class="login-box">
+      <h3>Selamat Datang!</h3>
+      <input type="text" placeholder="Username lucu" />
+      <input type="password" placeholder="Password rahasia" />
+      <button onclick="closeLogin()">Masuk</button>
+    </div>
+  </div>  <script>
+    function filterMusic(value) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('h4').innerText.toLowerCase();
+        card.style.display = title.includes(value.toLowerCase()) ? '' : 'none';
+      });
+    }
+
+    function openLogin() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+
+    function closeLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+  </script></body>
+  </html>
