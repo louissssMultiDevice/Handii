@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Menu | Fika-Ai</title>
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .clock {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #1db954;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 1; }
+      to { opacity: 0.7; }
+    }
+
+    .player {
+      background: #1e1e1e;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .controls button {
+      background: #1db954;
+      border: none;
+      color: white;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .album-buttons {
+      margin: 20px 0;
+    }
+
+    .album-buttons button {
+      background-color: #282828;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .album-buttons button:hover {
+      background-color: #1db954;
+      color: #000;
+    }
+
+    .playlist {
+      margin-top: 20px;
+      display: none;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .playlist div {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #444;
+    }
+
+    .playlist div:hover {
+      background: #333;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock" id="waktuWIB">Waktu Indonesia Barat: --:--:--</div>
+
+  <div class="player">
+    <div class="title" id="nowPlaying">silahkan dipilih music nya..</div>
+    <audio id="audio" controls style="width: 100%;">
+      <source src="" type="audio/mpeg">
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <div class="controls">
+      <button onclick="prevSong()">⏮</button>
+      <button onclick="togglePlay()">▶️</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+  </div>
+
+  <div class="album-buttons">
+    <button onclick="showAlbum('hindia')">Hindia</button>
+    <button onclick="showAlbum('nadin')">Nadin Amizah</button>
+    <button onclick="showAlbum('feast')">.Feast</button>
+    <button onclick="showAlbum('edsheeran')">Ed Sheeran</button>
+    <button onclick="showAlbum('sal')">Sal Priadi</button>
+    <button onclick="showAlbum('juicy')">Juicy Luicy</button>
+    <button onclick="showAlbum('Daun')">Daun Jatuh</button>
+  
+  </div>
+
+  <div class="playlist" id="playlist"></div>
+
+  <script>
+    const allSongs = {
+      hindia: [
+        { title: "Evaluasi", file: "evaluasi.mp3" },
+        { title: "Secukupnya", file: "secukupnya.mp3" },
+        { title: "Semua Lagu Cinta Terdengan Sama", file: "ndi.mp3" },
+        { title: "Berdansalah, Karir Ini Tidak Ada Artinya", file: "berdansalah.mp3" },
+        { title: "Rumah Ke Rumah", file: "rumahkerumah.mp3" },
+        { title: "Cincin", file: "cincin.mp3" },
+        { title: "Evakuasi", file: "evakuasi.mp3" },
+        { title: "Kita Ke Sana", file: "kitakesana.mp3" },
+        { title: "Membasuh", file: "membasuh.mp3" },
+        { title: "Everything U Are", file: "everything.mp3" },
+        { title: "Untuk Apa / Untuk Apa?", file: "untukapa" }
+      ],
+      nadin: [
+        { title: "Rumpang", file: "rumpang.mp3" },
+        { title: "Sorai", file: "sorai.mp3" },
+        { title: "Rayuan Perempuan Gila", file: "rayuan.mp3" }
+      ],
+      feast: [
+        { title: "Peradaban", file: "URL_PERADABAN" },
+        { title: "Berita Kehilangan", file: "beritakehilangan.mp3" }
+      ],
+      edsheeran: [
+        { title: "Perfect", file: "perfect.mp3" }
+      ]
+    };
+
+    let currentPlaylist = [];
+    let index = 0;
+    const audio = document.getElementById("audio");
+    const nowPlaying = document.getElementById("nowPlaying");
+    const playlistDiv = document.getElementById("playlist");
+
+    function showAlbum(albumKey) {
+      playlistDiv.style.display = "block";
+      playlistDiv.innerHTML = "";
+      currentPlaylist = allSongs[albumKey];
+      currentPlaylist.forEach((song, i) => {
+        const div = document.createElement("div");
+        div.textContent = song.title;
+        div.onclick = () => loadSong(i);
+        playlistDiv.appendChild(div);
+      });
+      loadSong(0);
+    }
+
+    function loadSong(i) {
+      index = i;
+      audio.src = currentPlaylist[i].file;
+      nowPlaying.textContent = "Memutar: " + currentPlaylist[i].title;
+      audio.play();
+    }
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function prevSong() {
+      index = (index - 1 + currentPlaylist.length) % currentPlaylist.length;
+      loadSong(index);
+    }
+
+    function nextSong() {
+      index = (index + 1) % currentPlaylist.length;
+      loadSong(index);
+    }
+
+    // Fungsi update waktu WIB
+    function updateClock() {
+      const now = new Date();
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const wib = new Date(utc + (7 * 3600000));
+      const jam = String(wib.getHours()).padStart(2, '0');
+      const menit = String(wib.getMinutes()).padStart(2, '0');
+      const detik = String(wib.getSeconds()).padStart(2, '0');
+      document.getElementById("waktuWIB").textContent = `Waktu Indonesia Barat: ${jam}:${menit}:${detik}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
